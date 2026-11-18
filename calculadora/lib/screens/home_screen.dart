@@ -23,17 +23,142 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 20,
       ),
       backgroundColor: Colors.amber,
-      body: Center(
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+      body: Column(
+        children: [
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("7")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("8")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("9")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                 child: Text("X")
+                )
+              ),
+            ],
           ),
-          itemCount: 2,
-          itemBuilder: (BuildContext context, int index) {
-            return ;
-          },
-        ),
-        ),
+
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("4")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("5")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("6")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("-")
+                )
+              ),
+            ],
+
+          ),
+
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("1")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("2")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("3")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("+")
+                )
+              ),
+            ],
+          ),
+
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("+-")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("0")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text(",")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: null,
+                  child: Text("=")
+                )
+              ),
+            ],
+          ),
+        ]  
+      ),
     );
   }
 }
