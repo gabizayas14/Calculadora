@@ -9,7 +9,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int total = 0;
-  
+  int primernumero = 0;
+  int segundonumero = 0;
+
   void boton7(){
     total = 7;
     setState(() {});
@@ -41,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void boton1(){
-    total = 1;
+    primernumero = 1;
     setState(() {});
   }
 
   void boton2(){
-    total = 2;
+    segundonumero = 2;
     setState(() {});
   }
 
@@ -60,6 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
+  void sumar(){
+    total = primernumero + segundonumero;
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -109,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: 
                 FloatingActionButton(
                   onPressed: null,
-                 child: Text("X")
+                 child: Text("*")
                 )
               ),
             ],
@@ -175,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: null,
+                  onPressed: sumar,
                   child: Text("+")
                 )
               ),

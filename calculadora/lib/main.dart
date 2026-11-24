@@ -1,5 +1,7 @@
 import 'package:calculadora/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(const MyApp());
