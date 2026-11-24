@@ -8,12 +8,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String expression = '';
   int total = 0;
   int primernumero = 0;
   int segundonumero = 0;
 
+  void agregarNumero(String numero) {
+    expression = expression + numero;
+    setState(() {});
+  }
+
+  void agregarOperador(String operador) {
+    expression = expression + operador;
+    setState(() {});
+  }
+
   void boton7(){
-    total = 7;
+    expression = expression + '7';
     setState(() {});
   }
 
@@ -83,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             children: <Widget>[
               Expanded(
-                child: Text('$total', style: tamano40,))
+                child: Text(expression, style: tamano40,))
             ],
           ),
 
@@ -92,28 +103,28 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton7,
+                  onPressed: () => agregarNumero('7'),
                   child: Text("7")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton8,
+                  onPressed: () => agregarNumero('8'),
                   child: Text("8")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton9,
+                  onPressed:() =>  agregarNumero('9'),
                   child: Text("9")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: null,
+                  onPressed: () => agregarOperador('*'),
                  child: Text("*")
                 )
               ),
@@ -125,28 +136,28 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton4,
+                  onPressed: () => agregarNumero('4'),
                   child: Text("4")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton5,
+                  onPressed: () => agregarNumero('5'),
                   child: Text("5")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton6,
+                  onPressed: () => agregarNumero('6'),
                   child: Text("6")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: null,
+                  onPressed: () => agregarOperador('-'),
                   child: Text("-")
                 )
               ),
@@ -159,28 +170,28 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton1,
+                  onPressed: () => agregarNumero('1'),
                   child: Text("1")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton2,
+                  onPressed: () => agregarNumero('2'),
                   child: Text("2")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton3,
+                  onPressed: () => agregarNumero('3'),
                   child: Text("3")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: sumar,
+                  onPressed: () => agregarOperador('+'),
                   child: Text("+")
                 )
               ),
@@ -192,14 +203,14 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: null,
-                  child: Text("+-")
+                  onPressed: () => agregarOperador('/'),
+                  child: Text("/")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: boton0,
+                  onPressed: () => agregarNumero('0'),
                   child: Text("0")
                 )
               ),
