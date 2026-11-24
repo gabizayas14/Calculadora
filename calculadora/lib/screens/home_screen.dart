@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -9,9 +10,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String expression = '';
-  int total = 0;
-  int primernumero = 0;
-  int segundonumero = 0;
 
   void agregarNumero(String numero) {
     expression = expression + numero;
@@ -23,59 +21,39 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
-  void boton7(){
-    expression = expression + '7';
-    setState(() {});
+  void calcular() {
+    try {
+      final parser = GrammarParser();
+      final exp = parser.parse(expression);
+      final resultado = exp.evaluate(
+        EvaluationType.REAL,
+        ContextModel(),
+      );
+
+      setState(() {
+        expression = resultado.toString();
+      });
+    } catch (_) {
+      setState(() {
+        expression = 'Error';
+      });
+    }
   }
 
-  void boton8(){
-    total = 8;
-    setState(() {});
+  void limpiar() {
+    setState(() {
+      expression = '';
+    });
   }
 
-  void boton9(){
-    total = 9;
-    setState(() {});
+  void borrar() {
+    if (expression.isNotEmpty) {
+      setState(() {
+        expression.substring(0, expression.length - 1);
+      });
+    }
   }
 
-  void boton4(){
-    total = 4;
-    setState(() {});
-  }
-
-  void boton5(){
-    total = 5;
-    setState(() {});
-  }
-
-  void boton6(){
-    total = 6;
-    setState(() {});
-  }
-
-  void boton1(){
-    primernumero = 1;
-    setState(() {});
-  }
-
-  void boton2(){
-    segundonumero = 2;
-    setState(() {});
-  }
-
-  void boton3(){
-    total = 3;
-    setState(() {});
-  }
-
-  void boton0(){
-    total = 0;
-    setState(() {});
-  }
-
-  void sumar(){
-    total = primernumero + segundonumero;
-  }
   @override
   Widget build(BuildContext context) {
 
@@ -95,6 +73,39 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               Expanded(
                 child: Text(expression, style: tamano40,))
+            ],
+          ),
+
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: () => agregarOperador('%'),
+                  child: Text("%")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: () => limpiar(),
+                  child: Text("C")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: () => borrar,
+                  child: Text("⌫")
+                )
+              ),
+              Expanded(
+                child: 
+                FloatingActionButton(
+                  onPressed: () => agregarOperador('/'),
+                  child: Text("/")
+                )
+              )
             ],
           ),
 
@@ -203,8 +214,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: () => agregarOperador('/'),
-                  child: Text("/")
+                  onPressed: () => null,
+                  child: Text("+/-")
                 )
               ),
               Expanded(
@@ -217,14 +228,14 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: null,
+                  onPressed: () => agregarOperador(','),
                   child: Text(",")
                 )
               ),
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: null,
+                  onPressed: calcular,
                   child: Text("=")
                 )
               ),
