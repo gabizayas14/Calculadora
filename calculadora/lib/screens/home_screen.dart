@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: 
                 FloatingActionButton(
                   onPressed: () => agregarOperador('/'),
-                  child: Text("/")
+                  child: Text("÷")
                 )
               )
             ],
