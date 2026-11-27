@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void calcular() {
     try {
       final parser = GrammarParser();
-      final exp = parser.parse(expression);
+      final exp = parser.parse(expression.replaceAll(',', '.'));
       final resultado = exp.evaluate(
         EvaluationType.REAL,
         ContextModel(),
