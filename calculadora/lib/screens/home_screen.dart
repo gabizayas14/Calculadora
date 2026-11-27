@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:calculadora/logica/logica_calculadora.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -9,6 +10,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final calculadora = LogicaCalculadora();
+
   String expression = '';
 
   void agregarNumero(String numero) {
@@ -36,22 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void calcular() {
-    try {
-      final parser = GrammarParser();
-      final exp = parser.parse(expression.replaceAll(',', '.'));
-      final resultado = exp.evaluate(
-        EvaluationType.REAL,
-        ContextModel(),
-      );
-
-      setState(() {
-        expression = resultado.toString();
-      });
-    } catch (_) {
-      setState(() {
-        expression = 'Error';
-      });
-    }
+    setState(() {
+      expression = calculadora.calcular(expression);
+    });
   }
 
   void limpiar() {
@@ -82,14 +72,33 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       backgroundColor: const Color.fromARGB(255, 105, 206, 110),
       body: Column(
-        children: [
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(expression, style: tamano40,))
-            ],
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(expression, style: tamano40),
+                  ),
+                ],
+              ),
+            ),
           ),
 
+          Expanded(
+            flex: 2,
+            child: Container(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(expression, style: tamano40),
+                  )
+                ],
+              )
+            )
+          ),
+          
           Row(
             children: <Widget>[
               Expanded(
@@ -99,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("%")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -106,6 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("C")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -113,6 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("⌫")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -132,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("7")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -139,6 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("8")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -146,6 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("9")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -165,6 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("4")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -172,6 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("5")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -179,6 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("6")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -187,7 +205,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ),
             ],
-
           ),
 
           Row(
@@ -199,6 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("1")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -206,6 +224,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("2")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -213,6 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("3")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -232,6 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("+/-")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -239,6 +260,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("0")
                 )
               ),
+
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -246,6 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(",")
                 )
               ),
+              
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -255,8 +278,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-        ]  
+        ],
       ),
     );
   }
 }
+      
