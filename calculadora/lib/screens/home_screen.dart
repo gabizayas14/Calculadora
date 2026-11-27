@@ -65,38 +65,34 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calculadora', style: TextStyle(color: Colors.black),),
-        backgroundColor: const Color.fromARGB(255, 47, 211, 240),
+        title: Text('Calculadora', style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
+        backgroundColor: const Color.fromARGB(255, 18, 69, 90),
 
         elevation: 20,
       ),
-      backgroundColor: const Color.fromARGB(255, 105, 206, 110),
+      backgroundColor: const Color.fromARGB(255, 19, 49, 58),
       body: Column(
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: Container(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(expression, style: tamano40),
-                  ),
-                ],
-              ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(expression, style: tamano40),
+                ),
+              ],
             ),
           ),
 
           Expanded(
             flex: 2,
-            child: Container(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(expression, style: tamano40),
-                  )
-                ],
-              )
-            )
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(expression, style: tamano40),
+                )
+              ],
+            ),
           ),
           
           Row(
@@ -248,11 +244,11 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: () => null,
+                  onPressed: () {},
                   child: Text("+/-")
                 )
               ),
-
+              
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -260,7 +256,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("0")
                 )
               ),
-
               Expanded(
                 child: 
                 FloatingActionButton(
@@ -268,7 +263,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(",")
                 )
               ),
-              
               Expanded(
                 child: 
                 FloatingActionButton(
