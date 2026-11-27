@@ -64,26 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
     const tamano40 = TextStyle(fontSize: 40);
 
-    return Theme(
-      data: Theme.of(context).copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 16, 24, 32),
-        floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Color.fromARGB(255, 42, 157, 143),
-          foregroundColor: Colors.white,
-          elevation: 3,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-          ),
-        ),
-      ),
-      child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Calculadora',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-        ),
-        backgroundColor: const Color.fromARGB(255, 23, 42, 58),
-        elevation: 0,
+        title: Text('Calculadora', style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+
+        elevation: 20,
       ),
       backgroundColor: const Color.fromARGB(255, 16, 24, 32),
       body:Column(
@@ -92,10 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               SizedBox(
                 height: 45,
-                child: Text(
-                  expression,
-                  style: const TextStyle(fontSize: 22, color: Color(0xFFB0BEC5)),
-                ),
+                child: Text(expression, style: TextStyle(fontSize: 22, color: Colors.white)),
               ),
             ],
           ),
@@ -104,13 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               SizedBox(
                 height: 65,
-                child: Text(
-                  resultado,
-                  style: tamano40.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                child: Text(resultado, style: TextStyle(fontSize: 40, color: Colors.white)),
               ),
             ],
           ),
@@ -121,6 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
+                  foregroundColor: Colors.white,
                   onPressed: porcentaje,
                   child: Text("%")
                 )
@@ -129,6 +108,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
+                  foregroundColor: Colors.white,
                   onPressed: () => limpiar(),
                   child: Text("C")
                 )
@@ -137,6 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
+                  foregroundColor: Colors.white,
                   onPressed: borrar,
                   child: Text("⌫")
                 )
@@ -145,6 +128,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
+                  foregroundColor: Colors.white,
                   onPressed: () => agregarOperador('/'),
                   child: Text("÷")
                 )
@@ -157,6 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('7'),
                   child: Text("7")
                 )
@@ -165,6 +152,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('8'),
                   child: Text("8")
                 )
@@ -173,6 +162,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed:() =>  agregarNumero('9'),
                   child: Text("9")
                 )
@@ -181,6 +172,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarOperador('*'),
                  child: Text("*")
                 )
@@ -193,6 +186,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('4'),
                   child: Text("4")
                 )
@@ -201,6 +196,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('5'),
                   child: Text("5")
                 )
@@ -209,6 +206,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('6'),
                   child: Text("6")
                 )
@@ -217,6 +216,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarOperador('-'),
                   child: Text("-")
                 )
@@ -229,6 +230,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('1'),
                   child: Text("1")
                 )
@@ -237,6 +240,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('2'),
                   child: Text("2")
                 )
@@ -245,6 +250,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('3'),
                   child: Text("3")
                 )
@@ -253,6 +260,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarOperador('+'),
                   child: Text("+")
                 )
@@ -265,6 +274,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () {},
                   child: Text("+/-")
                 )
@@ -273,6 +284,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarNumero('0'),
                   child: Text("0")
                 )
@@ -280,6 +293,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: () => agregarOperador(','),
                   child: Text(",")
                 )
@@ -287,6 +302,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 42, 157, 143),
                   onPressed: calcular,
                   child: Text("=")
                 )
@@ -294,7 +311,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ],
-      ),
       ),
     );
   }
