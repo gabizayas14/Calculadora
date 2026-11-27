@@ -64,37 +64,57 @@ class _HomeScreenState extends State<HomeScreen> {
 
     const tamano40 = TextStyle(fontSize: 40);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Calculadora', style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
-        backgroundColor: const Color.fromARGB(255, 18, 69, 90),
-
-        elevation: 20,
+    return Theme(
+      data: Theme.of(context).copyWith(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 16, 24, 32),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color.fromARGB(255, 42, 157, 143),
+          foregroundColor: Colors.white,
+          elevation: 3,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+        ),
       ),
-      backgroundColor: const Color.fromARGB(255, 19, 49, 58),
-      body: Column(
+      child: Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Calculadora',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+        backgroundColor: const Color.fromARGB(255, 23, 42, 58),
+        elevation: 0,
+      ),
+      backgroundColor: const Color.fromARGB(255, 16, 24, 32),
+      body:Column(
         children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(expression, style: tamano40),
+          Row(
+            children: [
+              SizedBox(
+                height: 45,
+                child: Text(
+                  expression,
+                  style: const TextStyle(fontSize: 22, color: Color(0xFFB0BEC5)),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-
-          Expanded(
-            flex: 2,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(resultado, style: tamano40),
-                )
-              ],
-            ),
+          
+          Row(
+            children: [
+              SizedBox(
+                height: 65,
+                child: Text(
+                  resultado,
+                  style: tamano40.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
           ),
+          
           
           Row(
             children: <Widget>[
@@ -275,7 +295,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      ),
     );
   }
 }
-      
