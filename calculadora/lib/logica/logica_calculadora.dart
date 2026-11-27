@@ -17,4 +17,33 @@ class LogicaCalculadora {
       return 'Error';
     }
   }
+
+  String agregarNumero(String expression, String numero) {
+    return expression + numero;
+  }
+
+  String agregarOperador(String expression, String operador){
+    return expression + operador;
+  }
+
+  String porcentaje(String expression) {
+    try {
+      final numero = double.parse(expression);
+
+      return (numero / 100).toString();
+    } catch (_) {
+      return 'Error';
+    }
+  }
+
+  String limpiar() {
+    return '';
+  }
+
+  String borrar(String expression) {
+    if (expression.isNotEmpty) {
+      return expression.substring(0, expression.length - 1);
+    }
+    return expression;
+  }
 }

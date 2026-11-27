@@ -16,27 +16,22 @@ class _HomeScreenState extends State<HomeScreen> {
   String resultado = '';
 
   void agregarNumero(String numero) {
-    expression = expression + numero;
-    setState(() {});
+    setState(() {
+      expression = calculadora.agregarNumero(expression, numero);
+    });
   }
 
   void agregarOperador(String operador) {
     expression = expression + operador;
-    setState(() {});
+    setState(() {
+      expression = calculadora.agregarOperador(expression, operador);
+    });
   }
 
   void porcentaje() {
-    try {
-      final numero = double.parse(expression);
-
-      setState((){
-        expression = (numero / 100).toString();
-      });
-    } catch (_) {
-      setState(() {
-        expression = 'Error';
-      });
-    }
+    setState(() {
+      expression = calculadora.porcentaje(expression);
+    });
   }
 
   void calcular() {
@@ -47,16 +42,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void limpiar() {
     setState(() {
-      expression = '';
+      expression = calculadora.limpiar();
+      resultado = '';
     });
   }
 
   void borrar() {
-    if (expression.isNotEmpty) {
-      setState(() {
-        expression = expression.substring(0, expression.length -1);
-      });
-    }
+    setState(() {
+        expression = calculadora.borrar(expression);
+    });
   }
 
   @override
