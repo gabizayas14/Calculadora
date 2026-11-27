@@ -13,6 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final calculadora = LogicaCalculadora();
 
   String expression = '';
+  String resultado = '';
 
   void agregarNumero(String numero) {
     expression = expression + numero;
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void calcular() {
     setState(() {
-      expression = calculadora.calcular(expression);
+      resultado = calculadora.calcular(expression);
     });
   }
 
@@ -89,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: Text(expression, style: tamano40),
+                  child: Text(resultado, style: tamano40),
                 )
               ],
             ),
