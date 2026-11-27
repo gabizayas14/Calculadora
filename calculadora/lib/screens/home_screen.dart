@@ -21,6 +21,20 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
+  void porcentaje() {
+    try {
+      final numero = double.parse(expression);
+
+      setState((){
+        expression = (numero / 100).toString();
+      });
+    } catch (_) {
+      setState(() {
+        expression = 'Error';
+      });
+    }
+  }
+
   void calcular() {
     try {
       final parser = GrammarParser();
@@ -49,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void borrar() {
     if (expression.isNotEmpty) {
       setState(() {
-        expression.substring(0, expression.length - 1);
+        expression = expression.substring(0, expression.length -1);
       });
     }
   }
@@ -81,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: () => agregarOperador('%'),
+                  onPressed: porcentaje,
                   child: Text("%")
                 )
               ),
@@ -95,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: 
                 FloatingActionButton(
-                  onPressed: () => borrar,
+                  onPressed: borrar,
                   child: Text("⌫")
                 )
               ),
