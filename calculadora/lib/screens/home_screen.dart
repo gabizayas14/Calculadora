@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void agregarOperador(String operador) {
-    expression = expression + operador;
     setState(() {
       expression = calculadora.agregarOperador(expression, operador);
     });
